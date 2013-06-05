@@ -1,0 +1,2 @@
+tomba 1000 tomba 1000 !=blabla /home/tomba /bin/sh - -
+

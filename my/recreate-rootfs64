@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+ROOTFS=/nfs/rootfs64.buildroot
+ROOTFS_TAR=../output64/images/rootfs.tar.gz
+
+if [ ! -f $ROOTFS_TAR ]; then
+	echo no $ROOTFS_TAR
+	exit 1
+fi
+
+sudo rm -rf $ROOTFS/*
+sudo tar -xf $ROOTFS_TAR -C $ROOTFS

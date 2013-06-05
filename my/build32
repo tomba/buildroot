@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm -rf ../output32
+make O=../output32 tomba_defconfig
+make O=../output32

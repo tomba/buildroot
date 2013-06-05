@@ -1,0 +1,9 @@
+#!/bin/sh
+
+serverip=`cat /proc/mounts | grep root | egrep -o ",addr=[^ ]+" | cut -d = -f 2`
+
+echo Mounting root home
+mount -o nolock $serverip:/home/tomba/work/buildroot/roothome /root
+
+echo Mounting home
+mount -o nolock $serverip:/home/tomba /root/nfs
