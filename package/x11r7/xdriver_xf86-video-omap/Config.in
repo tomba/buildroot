@@ -1,0 +1,7 @@
+config BR2_PACKAGE_XDRIVER_XF86_VIDEO_OMAP
+	bool "xf86-video-omap"
+	select BR2_PACKAGE_LIBDRM
+	select BR2_PACKAGE_LIBDRM_OMAP
+	select BR2_PACKAGE_XORGPROTO
+	help
+	  omap video driver
