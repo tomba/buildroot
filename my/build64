@@ -1,6 +1,7 @@
 #!/bin/sh
 
+set -e
+
 rm -rf ../output64
 make O=../output64 tomba64_defconfig
 make O=../output64
-
