@@ -4,9 +4,11 @@
 #
 ################################################################################
 
-LIBV4L_VERSION = 1.20.0
-LIBV4L_SOURCE = v4l-utils-$(LIBV4L_VERSION).tar.bz2
-LIBV4L_SITE = https://linuxtv.org/downloads/v4l-utils
+#LIBV4L_VERSION = 1.20.0
+#LIBV4L_SOURCE = v4l-utils-$(LIBV4L_VERSION).tar.bz2
+#LIBV4L_SITE = https://linuxtv.org/downloads/v4l-utils
+LIBV4L_VERSION = 6e058db1
+LIBV4L_SITE = $(call github,tomba,v4l-utils,$(LIBV4L_VERSION))
 LIBV4L_INSTALL_STAGING = YES
 LIBV4L_DEPENDENCIES = host-pkgconf
 LIBV4L_CONF_OPTS = --disable-doxygen-doc --disable-qvidcap
@@ -83,5 +85,12 @@ LIBV4L_DEPENDENCIES += sdl2_image
 endif
 
 LIBV4L_CONF_ENV += LIBS="$(LIBV4L_LIBS)"
+
+define LIBV4L_BOOTSTRAP
+	cd $(@D) && \
+	./bootstrap.sh
+endef
+
+LIBV4L_PRE_CONFIGURE_HOOKS += LIBV4L_BOOTSTRAP
 
 $(eval $(autotools-package))
